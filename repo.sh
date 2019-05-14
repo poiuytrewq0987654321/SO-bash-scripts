@@ -3,7 +3,8 @@
 
 echo 'dodawanie wpisow repo do sources.list'
 cd /etc/apt
-sed '1,50d' sources.list
+rm sources.list
+touch sources.list
 echo 'deb http://deb.debian.org/debian/ stretch main contrib' >> sources.list
 echo 'deb http://security.debian.org/ stretch/updates contrib main' >> sources.list
 echo 'deb http://deb.debian.org/debian/ stretch-updates contrib main' >> sources.list
@@ -12,7 +13,7 @@ echo 'updateowanie repo'
 apt-get update
 
 echo 'upgradeowanie pakietow'
-apt-get upgrade
+apt-get -y upgrade
 
 echo 'instalacja sudo'
 apt-get install sudo
