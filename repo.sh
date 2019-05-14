@@ -1,3 +1,4 @@
+#!/bin/bash
 # dodanie repo do pliku sources.list
 
 echo 'dodawanie wpisow repo do sources.list'
