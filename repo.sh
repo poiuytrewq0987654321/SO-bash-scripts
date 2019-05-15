@@ -16,8 +16,8 @@ echo 'upgradeowanie pakietow'
 apt-get -y upgrade
 
 echo 'instalacja sudo'
-apt-get install sudo
+apt-get -y install sudo
 
 echo 'nadawanie uprawnien sudo uzytkownikom'
 cd /etc
-echo 'student ALL=(ALL:ALL) ALL' >> sudoers
+sed '/root\tALL=(ALL:ALL) ALL/a student\tALL=(ALL:ALL) ALL' /etc/sudoers
