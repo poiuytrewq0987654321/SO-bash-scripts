@@ -20,7 +20,7 @@ apt-get -y install sudo
 
 echo 'nadawanie uprawnien sudo uzytkownikom'
 cd /etc
-sed '/root\tALL=(ALL:ALL) ALL/a student\tALL=(ALL:ALL) ALL' /etc/sudoers
+sed -i '/root\tALL=(ALL:ALL) ALL/a student\tALL=(ALL:ALL) ALL' /etc/sudoers
 
 echo 'installing net-tools (ifconfig)'
 apt-get -y install net-tools
