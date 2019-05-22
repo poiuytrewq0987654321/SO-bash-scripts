@@ -45,12 +45,12 @@ chmod 777 /media/storage
 
 echo 'konfiguracja samby pod uwierzytelnienie'
 echo 'dla usera: sambo i hasle: sambo123'
-useradd -p sambo123 -s /bin/false sambo
+useradd -p smbuser123 -s /bin/false smbuser
 
 awk -F: '{ print $1}' /etc/passwd
 
 mkdir /media/storage2
-chown -R sambo:smbuser /media/storage2
+chown -R smbuser:smbuser /media/storage2
 chmod 700 /media/storage2
 
 echo 'restart samba service'
