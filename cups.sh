@@ -37,6 +37,7 @@ echo 'comment = Printer Drivers' >> /etc/samba/smb.conf
 echo 'write list = student' >> /etc/samba/smb.conf
 
 mkdir -p /var/spool/samba/
+mkdir -p /srv/samba/Printer_drivers/
 chmod 1777 /var/spool/samba/
 
-systemctl restart samba
+systemctl restart smbd.service

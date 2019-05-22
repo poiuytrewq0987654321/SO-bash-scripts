@@ -44,8 +44,9 @@ mkdir /media/storage
 chmod 777 /media/storage
 
 echo 'konfiguracja samby pod uwierzytelnienie'
-echo 'dla usera: smbuser i hasle: smbuser123'
-useradd -p smbuser123 -s /bin/false smbuser
+
+useradd -s /bin/false smbuser
+smbpasswd -a smbuser
 
 awk -F: '{ print $1}' /etc/passwd
 
