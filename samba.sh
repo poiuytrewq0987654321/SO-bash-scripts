@@ -25,7 +25,7 @@ fi
 
 echo 'konfiguracja samby pod uwierzytelnienie'
 echo 'dla usera: smbuser i hasle: smbuser123'
-useradd -p smbuser123 smbuser
+useradd -p smbuser123 -s /bin/false smbuser
 
 awk -F: '{ print $1}' /etc/passwd
 
@@ -43,9 +43,6 @@ echo 'directory mask = 0700' >> /etc/samba/smb.conf
 
 echo 'restart samba service'
 systemctl restart smbd.service
-
-cd /media
-znajdz2=$(find /media/ -name 'storage2' | wc -l)
 
 mkdir /media/storage2
 chown -R smbuser:smbuser /media/storage2
