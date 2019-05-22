@@ -28,7 +28,7 @@ echo 'path = /var/spool/samba' >> /etc/samba/smb.conf
 echo 'printable = yes' >> /etc/samba/smb.conf
 echo 'printing = CUPS' >> /etc/samba/smb.conf
 
-!!!!'do sprawdzenia czy plik smb.conf nie ma juz sekcji [print$]'
+echo 'do sprawdzenia czy plik smb.conf nie ma juz sekcji [print$]'
 echo '[print$]' >> /etc/samba/smb.conf
 echo 'path = /srv/samba/Printer_drivers' >> /etc/samba/smb.conf
 echo 'comment = Printer Drivers' >> /etc/samba/smb.conf
