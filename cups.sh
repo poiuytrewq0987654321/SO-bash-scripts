@@ -20,8 +20,8 @@ systemctl restart cups
 echo ' wejdz na https://localhost:631 :-)'
 
 echo 'konfiguracja drukarek serwera CUPS przez serwer samba (wymagana samba)'
-sed -i '/[global]/a rpc_server:spoolss = external' /etc/samba/smb.conf
-sed -i '/[global]/a rpc_daemon:spoolssd = fork' /etc/samba/smb.conf
+sed -i '/global/a rpc_daemon:spoolssd = fork' /etc/samba/smb.conf
+sed -i '/global/a rpc_server:spoolss = external' /etc/samba/smb.conf
 
 echo '\n' >> /etc/samba/smb.conf
 echo '[printers]' >> /etc/samba/smb.conf
