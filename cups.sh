@@ -23,12 +23,14 @@ echo 'konfiguracja drukarek serwera CUPS przez serwer samba (wymagana samba)'
 sed -i '/[global]/a rpc_server:spoolss = external' /etc/samba/smb.conf
 sed -i '/[global]/a rpc_daemon:spoolssd = fork' /etc/samba/smb.conf
 
+echo '\n' >> /etc/samba/smb.conf
 echo '[printers]' >> /etc/samba/smb.conf
 echo 'path = /var/spool/samba' >> /etc/samba/smb.conf
 echo 'printable = yes' >> /etc/samba/smb.conf
 echo 'printing = CUPS' >> /etc/samba/smb.conf
 
 echo 'do sprawdzenia czy plik smb.conf nie ma juz sekcji [print$]'
+echo '\n' >> /etc/samba/smb.conf
 echo '[print$]' >> /etc/samba/smb.conf
 echo 'path = /srv/samba/Printer_drivers' >> /etc/samba/smb.conf
 echo 'comment = Printer Drivers' >> /etc/samba/smb.conf
