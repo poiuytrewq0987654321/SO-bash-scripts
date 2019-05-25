@@ -6,6 +6,11 @@ apt-get -y install samba
 rm /etc/samba/smb.conf
 touch /etc/samba/smb.conf
 
+echo -e "\e[42mpodaj numer indeksu:\e[0m"
+read indeks
+echo -e "\e[42mpodaj nazwe uzytkownika ktorym chcesz sie logowac z zewnatrz do zasobu (student / studentka):\e[0m"
+read uzytkownik
+
 echo 'dodawanie konfiguracji do pliku smb.conf'
 echo '[global]' >> /etc/samba/smb.conf
 echo 'workgroup = smb' >> /etc/samba/smb.conf
@@ -30,7 +35,7 @@ echo 'guest ok = yes' >> /etc/samba/smb.conf
 echo '\n' >> /etc/samba/smb.conf
 
 echo '[restricted]' >> /etc/samba/smb.conf
-echo 'valid users = smbuser' >> /etc/samba/smb.conf
+echo 'valid users = $uzytkownik-$indeks' >> /etc/samba/smb.conf
 echo 'path = /media/storage2/' >> /etc/samba/smb.conf
 echo 'public = no' >> /etc/samba/smb.conf
 echo 'writable = yes' >> /etc/samba/smb.conf
@@ -45,13 +50,13 @@ chmod 777 /media/storage
 
 echo 'konfiguracja samby pod uwierzytelnienie'
 
-useradd -s /bin/false smbuser
-smbpasswd -a smbuser
+echo -e "\e[42mustal haslo dla tego uzytkownika (haslo do uwierzytelniania sie w sambie!):\e[0m"
+smbpasswd -a $uzytkownik-$indeks
 
 awk -F: '{ print $1}' /etc/passwd
 
 mkdir /media/storage2
-chown -R smbuser:smbuser /media/storage2
+chown -R $uzytkownik-$indeks:$uzytkownik-$indeks /media/storage2
 chmod 700 /media/storage2
 
 echo 'restart samba service'
