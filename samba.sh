@@ -35,7 +35,7 @@ echo 'guest ok = yes' >> /etc/samba/smb.conf
 echo '\n' >> /etc/samba/smb.conf
 
 echo '[restricted]' >> /etc/samba/smb.conf
-echo 'valid users = $uzytkownik-$indeks' >> /etc/samba/smb.conf
+echo "valid users = $uzytkownik-$indeks" >> /etc/samba/smb.conf
 echo 'path = /media/storage2/' >> /etc/samba/smb.conf
 echo 'public = no' >> /etc/samba/smb.conf
 echo 'writable = yes' >> /etc/samba/smb.conf

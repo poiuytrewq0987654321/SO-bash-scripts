@@ -14,7 +14,7 @@ echo "\n"
 
 rm /etc/hostname
 touch /etc/hostname
-echo "\e[42mzmieniam nazwe hostname na: serwer$serwernumber-$indeks \e[0m"
+echo -e "\e[42mzmieniam nazwe hostname na: serwer$serwernumber-$indeks \e[0m"
 echo 'serwer$serwernumber-$indeks' >> /etc/hostname
 
 echo -e "\e[42mustawienie strefy czasowej:\e[0m"
@@ -47,7 +47,7 @@ read odpfinddev
 
 if [ $odpfinddev == "T" ] ; then
 mkdir /home/$uzytkownik-$indeks/Nowy
-echo "\e[32mprzeczesuje wszystkie pliki...\e[0m"
+echo -e "\e[32mprzeczesuje wszystkie pliki...\e[0m"
 find / -type f -name "*dev*" > /home/$uzytkownik-$indeks/wyniki
 else
 echo -e "wybrales \e[32mNIE\e[0m tworzyc pliku 'Nowy' i zapisania w nim wyszukiwania 'dev'"
