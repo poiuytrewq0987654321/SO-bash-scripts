@@ -49,7 +49,7 @@ read odpfinddev
 if [ $odpfinddev == "T" ] ; then
 mkdir /home/$uzytkownik-$indeks/Nowy
 echo -e "\e[32mprzeczesuje wszystkie pliki...\e[0m"
-find / -type f -name "*dev*" > /home/$uzytkownik-$indeks/wyniki
+find / -type f -name "*dev*" > /home/$uzytkownik-$indeks/Nowy/wyniki
 else
 echo -e "wybrales \e[32mNIE\e[0m tworzyc pliku 'Nowy' i zapisania w nim wyszukiwania 'dev'"
 fi
