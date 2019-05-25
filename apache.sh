@@ -1,9 +1,9 @@
 #!/bin/bash
 
-echo 'instalacja apache2'
+echo "instalacja apache2"
 apt-get -y install apache2
 
-echo 'uruchomienie apache2'
+echo "uruchomienie apache2"
 systemctl start apache2
 
 # znajdz=$(ifconfig | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b")

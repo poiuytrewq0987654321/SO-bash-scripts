@@ -15,7 +15,7 @@ echo "\n"
 rm /etc/hostname
 touch /etc/hostname
 echo -e "\e[42mzmieniam nazwe hostname na: serwer$serwernumber-$indeks \e[0m"
-echo 'serwer$serwernumber-$indeks' >> /etc/hostname
+echo "serwer$serwernumber-$indeks" >> /etc/hostname
 
 echo -e "\e[42mustawienie strefy czasowej:\e[0m"
 timedatectl set-timezone Europe/Warsaw
@@ -41,7 +41,7 @@ echo -e "\n"
 echo -e "\e[42mpodaj z co najmniej ilu znakow ma sie skladac haslo: \e[0m"
 read passminlength
 
-sed -i 's/sha512/& minlen=$passminlength/' /etc/pam.d/common-password
+sed -i "s/sha512/& minlen=$passminlength/" /etc/pam.d/common-password
 
 echo -e "\e[42mwykonac szukanie frazy 'dev' we wszystkich nazwach plikow? (napisz duza litera: T dla TAK i N dla NIE\e[0m"
 read odpfinddev

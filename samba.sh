@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo 'instalacja samby'
+echo "instalacja samby"
 apt-get -y install samba
 
 rm /etc/samba/smb.conf
@@ -48,16 +48,16 @@ echo 'directory mask = 0700' >> /etc/samba/smb.conf
 mkdir /media/storage
 chmod 777 /media/storage
 
-echo 'konfiguracja samby pod uwierzytelnienie'
+echo "konfiguracja samby pod uwierzytelnienie"
 
 echo -e "\e[42muustaw haslo dla $uzytkownik ktorego bedziesz uzywac autoryzujac sie na windows w trakcie laczenia sie z udostepnionym zasobem sieciowym:\e[0m"
 smbpasswd -a $uzytkownik-$indeks
 
-awk -F: '{ print $1}' /etc/passwd
+#awk -F: '{ print $1}' /etc/passwd
 
 mkdir /media/storage2
 chown -R $uzytkownik-$indeks:$uzytkownik-$indeks /media/storage2
 chmod 700 /media/storage2
 
-echo 'restart samba service'
+echo "restart samba service"
 systemctl restart smbd.service
