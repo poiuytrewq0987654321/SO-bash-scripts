@@ -72,7 +72,7 @@ rm /var/www/html/index.html
 touch /var/www/html/index.html
 echo "<html>" >> /var/www/html/index.html
 echo "<body>" >> /var/www/html/index.html
-echo "<div>Prace planowe na serwerze Serwer2-$indeks będą realizowane od godz. 9.00 do 12.00</div>" >> /var/www/html/index.html
+echo "<div>Prace planowe na serwerze Serwer2-$indeks beda realizowane od godz. 9.00 do 12.00</div>" >> /var/www/html/index.html
 echo "</body>" >> /var/www/html/index.html
 echo "</html>" >> /var/www/html/index.html
 else
