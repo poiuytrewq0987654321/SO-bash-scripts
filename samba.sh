@@ -50,7 +50,7 @@ chmod 777 /media/storage
 
 echo 'konfiguracja samby pod uwierzytelnienie'
 
-echo -e "\e[42mustal haslo dla tego uzytkownika (haslo do uwierzytelniania sie w sambie!):\e[0m"
+echo -e "\e[42muustaw haslo dla $uzytkownik ktorego bedziesz uzywac autoryzujac sie na windows w trakcie laczenia sie z udostepnionym zasobem sieciowym:\e[0m"
 smbpasswd -a $uzytkownik-$indeks
 
 awk -F: '{ print $1}' /etc/passwd
