@@ -1,0 +1,54 @@
+etc/hostname - zmiana nazwy hosta
+
+apt-get install htop
+adduser nazwa_uzytkownika
+passwd nazwa_uzytkownika
+
+adduser Serwer1-8734
+passwd Serwer1-8734
+
+adduser Serwer2-8734
+passwd Serwer2-8734
+
+=========================
+adduser student-8734
+passwd student-8734
+
+adduser studentka-8734
+passwd studentka-8734
+=========================
+mkdir /home/student-8734/Nowy
+find / -type f -name "*dev*" > /home/student-8734/wyniki
+mkdir /home/studentka-8734/Wynik
+cp /etc/network/interfaces /home/studentka-8734
+=========================
+groupadd linux8734
+usermod -a -G linux8734 student-8734
+=========================
+mkdir /home/student
+=========================
+!zmiana hasla!
+zalogowac sie na root i wpisac:
+passwd
+
+ustawienie strefy czasowej:
+sudo timedatectl set-timezone Europe/Warsaw
+
+
+kopiowanie pliku:
+sudo cp /sciezka/do/pliku /nowa/sciezka/do/pliku
+
+mkdir /root/backup
+sudo cp /etc/passwd /root/backup
+sudo cp /etc/shadow /root/backup
+sudo cp /etc/group /root/backup
+
+
+
+
+
+
+
+
+
+
