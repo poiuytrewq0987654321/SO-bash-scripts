@@ -57,7 +57,7 @@ echo -e "\e[42mczy mam zainstalowac system wymiany plikow (SAMBA)? wpisz T lub N
 read odpsamba
 if [ "$odpsamba" == "T" ] ; then
 echo -e "\e[42minstaluje sambe\e[0m"
-./samba.sh
+bash samba.sh
 else
 echo -e "wybrales \e[32mNIE\e[0m instalowac samby"
 fi
@@ -66,7 +66,7 @@ echo -e "\e[42mczy mam zainstalowac serwer WWW (APACHE2)? wpisz T lub N\e[0m"
 read odpapache
 if [ "$odpapache" == "T" ] ; then
 echo -e "\e[42minstaluje apache\e[0m"
-./apache.sh
+bash apache.sh
 echo -e "\e[42mkonfiguruje plik index.html\e[0m"
 rm /var/www/html/index.html
 touch /var/www/html/index.html

@@ -10,3 +10,5 @@ find / -type f -name "*dev*" > /home/administrator/Pobrane/testowiec/wynik
 else
 echo -e "wybrales \e[32mNIE\e[0m tworzyc pliku 'Nowy' i zapisania w nim wyszukiwania 'dev'"
 fi
+
+bash test2.sh
