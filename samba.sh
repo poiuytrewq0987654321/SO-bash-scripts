@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "instalacja samby"
+echo 'instalacja samby'
 apt-get -y install samba
 
 rm /etc/samba/smb.conf
