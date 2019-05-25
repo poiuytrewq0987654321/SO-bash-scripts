@@ -33,6 +33,7 @@ echo -e "\e[42mdodanie usera $uzytkownik-$indeks\e[0m"
 adduser $uzytkownik-$indeks
 
 echo -e "\e[42mzmiana hasla i nadanie mu expired na 40 dni\e[0m"
+echo -e "\n"
 echo -e "\e[32mpamietaj, tutaj ustawiasz standardowe haslo uzytkownika\e[0m"
 passwd -i 40 $uzytkownik-$indeks
 
@@ -84,7 +85,7 @@ echo "</html>" >> /var/www/html/index.html
 else
 echo -e "wybrales \e[32mNIE\e[0m instalowac samby"
 fi
-
+echo -e "\n"
 echo -e "\e[32m!PODSUMOWANIE!\e[0m"
 echo -e "\n"
 echo -e "aby sprawdzic jaki jest hostname, wpisz w konsoli: hostname"
