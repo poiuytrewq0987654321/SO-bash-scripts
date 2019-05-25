@@ -43,6 +43,10 @@ sudo cp /etc/passwd /root/backup
 sudo cp /etc/shadow /root/backup
 sudo cp /etc/group /root/backup
 
+expiration date passwd:
+- chage -I 40 student
+- passwd -i 40 student
+
 
 
 
