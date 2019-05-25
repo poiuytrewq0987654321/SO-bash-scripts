@@ -16,14 +16,12 @@ echo '[global]' >> /etc/samba/smb.conf
 echo 'workgroup = smb' >> /etc/samba/smb.conf
 echo 'security = user' >> /etc/samba/smb.conf
 echo 'map to guest = never' >> /etc/samba/smb.conf
-echo '\n' >> /etc/samba/smb.conf
 
 echo '[homes]' >> /etc/samba/smb.conf
 echo 'comment = Home Directories' >> /etc/samba/smb.conf
 echo 'browsable = no' >> /etc/samba/smb.conf
 echo 'read only = no' >> /etc/samba/smb.conf
 echo 'create mode = 0750' >> /etc/samba/smb.conf
-echo '\n' >> /etc/samba/smb.conf
 
 echo '[public]' >> /etc/samba/smb.conf
 echo 'path = /media/storage/' >> /etc/samba/smb.conf
@@ -32,7 +30,6 @@ echo 'writable = yes' >> /etc/samba/smb.conf
 echo 'comment = smb share' >> /etc/samba/smb.conf
 echo 'printable = no' >> /etc/samba/smb.conf
 echo 'guest ok = yes' >> /etc/samba/smb.conf
-echo '\n' >> /etc/samba/smb.conf
 
 echo '[restricted]' >> /etc/samba/smb.conf
 echo "valid users = $uzytkownik-$indeks" >> /etc/samba/smb.conf
