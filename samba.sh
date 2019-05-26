@@ -47,11 +47,13 @@ chmod 777 /media/storage
 
 echo "konfiguracja samby pod uwierzytelnienie"
 
-echo -e "\e[42muustaw haslo dla $uzytkownik ktorego bedziesz uzywac autoryzujac sie na windows w trakcie laczenia sie z udostepnionym zasobem sieciowym:\e[0m"
+echo -e "\e[42muustaw haslo dla $uzytkownik-$indeks ktorego bedziesz uzywac autoryzujac sie na windows w trakcie laczenia sie z udostepnionym zasobem sieciowym:\e[0m"
 smbpasswd -a $uzytkownik-$indeks
 
 #awk -F: '{ print $1}' /etc/passwd
 
+echo "\n"
+echo "tworze folder dla samby: /media/storage2"
 mkdir /media/storage2
 chown -R $uzytkownik-$indeks:$uzytkownik-$indeks /media/storage2
 chmod 700 /media/storage2
