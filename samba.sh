@@ -11,6 +11,10 @@ read indeks
 echo -e "\e[42mpodaj nazwe uzytkownika ktorym chcesz sie logowac z zewnatrz do zasobu (student / studentka):\e[0m"
 read uzytkownik
 
+useradd -m $uzytkownik-$indeks
+echo -e "\e[32mustaw haslo dla uzytkownika $uzytkownik-$indeks (pamietaj, tutaj ustawiasz standardowe haslo uzytkownika)\e[0m"
+passwd $uzytkownik-$indeks
+
 echo 'dodawanie konfiguracji do pliku smb.conf'
 echo '[global]' >> /etc/samba/smb.conf
 echo 'workgroup = smb' >> /etc/samba/smb.conf
