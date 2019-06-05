@@ -1,5 +1,33 @@
 #!/bin/bash
 
+# update repo i instalacja sudo
+
+echo 'dodawanie linkow repozytoriow do pliku sources.list'
+cd /etc/apt
+rm sources.list
+touch sources.list
+echo 'deb http://deb.debian.org/debian/ stretch main contrib' >> sources.list
+echo 'deb http://security.debian.org/ stretch/updates contrib main' >> sources.list
+echo 'deb http://deb.debian.org/debian/ stretch-updates contrib main' >> sources.list
+
+echo 'updateowanie repo'
+apt-get update
+
+echo 'upgradeowanie pakietow'
+apt-get -y upgrade
+
+echo 'instalacja sudo'
+apt-get -y install sudo
+
+echo 'nadawanie uprawnien sudo uzytkownikom'
+cd /etc
+sed -i '/root\tALL=(ALL:ALL) ALL/a student\tALL=(ALL:ALL) ALL' /etc/sudoers
+
+echo 'installing net-tools (ifconfig)'
+apt-get -y install net-tools
+
+# zakonczenie update'u repo i instalacji sudo
+
 echo -e "\e[42mpodaj nazwe serwera(np serwer1 czy serwer2):\e[0m"
 read serwernumber
 echo -e "\e[42mpodaj numer indeksu:\e[0m"
@@ -23,7 +51,7 @@ timedatectl set-timezone Europe/Warsaw
 echo -e "\e[42msprawdzenie daty:\e[0m"
 date
 echo -e "\n"
-echo -e "\e[42mutworzenie folderu backup i skopiowanie wybranych plikow\e[0m"
+echo -e "\e[42mutworzenie folderu backup i skopiowanie wybranych plikow (passwd,shadow,group)\e[0m"
 mkdir /root/backup
 cp /etc/passwd /root/backup
 cp /etc/shadow /root/backup
@@ -39,7 +67,7 @@ echo -e "\e[32mpamietaj, tutaj ustawiasz standardowe haslo uzytkownika\e[0m"
 passwd $uzytkownik-$indeks
 
 echo -e "\n"
-echo -e "\e[42mpodaj z co najmniej ilu znakow ma sie skladac haslo: \e[0m"
+echo -e "\e[42mkonfiguracja wymogu dlugosci hasla - podaj z ilu co najmniej znakow ma sie skladac haslo: \e[0m"
 read passminlength
 
 sed -i "s/sha512/& minlen=$passminlength/" /etc/pam.d/common-password
@@ -131,7 +159,6 @@ fi
 # 
 # instalacja apache start
 # 
-
 echo -e "\e[42mczy mam zainstalowac serwer WWW (APACHE2)? wpisz T lub N\e[0m"
 read odpapache
 if [ "$odpapache" == "T" ] ; then
