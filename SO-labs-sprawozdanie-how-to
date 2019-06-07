@@ -1,31 +1,32 @@
 etc/hostname - zmiana nazwy hosta
 
 apt-get install htop
-adduser nazwa_uzytkownika
-passwd nazwa_uzytkownika
 
-adduser Serwer1-8734
-passwd Serwer1-8734
+useradd -m Serwer1-1234
+passwd Serwer1-1234
 
-adduser Serwer2-8734
-passwd Serwer2-8734
+useradd -m Serwer2-1234
+passwd Serwer2-1234
 
 =========================
-adduser student-8734
-passwd student-8734
+useradd -m student-1234
+passwd student-1234
 
-adduser studentka-8734
-passwd studentka-8734
+useradd -m studentka-1234
+passwd studentka-1234
 =========================
-mkdir /home/student-8734/Nowy
-find / -type f -name "*dev*" > /home/student-8734/wyniki
-mkdir /home/studentka-8734/Wynik
-cp /etc/network/interfaces /home/studentka-8734
+mkdir /home/student-1234/Nowy
+find / -type f -name "*dev*" > /home/student-1234/wyniki
+mkdir /home/studentka-1234/Wynik
+cp /etc/network/interfaces /home/studentka-1234
 =========================
-groupadd linux8734
-usermod -a -G linux8734 student-8734
+groupadd linux1234
+usermod -a -G linux1234 student-1234
 =========================
-mkdir /home/student
+mkdir /root/backup
+cp /etc/passwd /root/backup
+cp /etc/shadow /root/backup
+cp /etc/group /root/backup
 =========================
 !zmiana hasla!
 zalogowac sie na root i wpisac:
@@ -34,19 +35,17 @@ passwd
 ustawienie strefy czasowej:
 sudo timedatectl set-timezone Europe/Warsaw
 
-
-kopiowanie pliku:
-sudo cp /sciezka/do/pliku /nowa/sciezka/do/pliku
-
+kopiowanie do stworzonego pliku backup wybranych plikow
 mkdir /root/backup
 sudo cp /etc/passwd /root/backup
 sudo cp /etc/shadow /root/backup
 sudo cp /etc/group /root/backup
 
 expiration date passwd:
-- chage -I 40 student
-- passwd -i 40 student
+passwd -i 40 nazwa_uzytkownika
 
+minimalna ilosc znakow (6) wymaganych w hasle:
+sed -i "s/sha512/& minlen=6/" /etc/pam.d/common-password
 
 
 
