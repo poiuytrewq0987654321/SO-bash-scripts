@@ -67,10 +67,10 @@ echo -e "\e[32mpamietaj, tutaj ustawiasz standardowe haslo uzytkownika\e[0m"
 passwd $uzytkownik-$indeks
 
 echo -e "\n"
-echo -e "\e[42mkonfiguracja wymogu dlugosci hasla - podaj z ilu co najmniej znakow ma sie skladac haslo: (podaj sama liczbe np. 8) \e[0m"
+echo -e "\e[42mkonfiguracja wymogu dlugosci hasla - podaj z ilu co najmniej znakow ma sie skladac haslo oraz jego zlozonosc (znaki specjalne): (podaj sama liczbe np. 8) \e[0m"
 read passminlength
 
-sed -i "s/sha512/& minlen=$passminlength/" /etc/pam.d/common-password
+sed -i "s/sha512/& ocredit=1 minlen=$passminlength/" /etc/pam.d/common-password
 
 echo -e "\e[42mwykonac szukanie frazy 'dev' we wszystkich nazwach plikow? (napisz duza litera: T dla TAK i N dla NIE\e[0m"
 read odpfinddev
