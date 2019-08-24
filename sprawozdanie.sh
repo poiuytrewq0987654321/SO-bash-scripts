@@ -72,15 +72,15 @@ read passminlength
 
 sed -i "s/sha512/& minlen=$passminlength/" /etc/pam.d/common-password
 
-echo -e "\e[42mwykonac szukanie frazy 'dev' we wszystkich nazwach plikow? (napisz duza litera: T dla TAK i N dla NIE\e[0m"
+echo -e "\e[42mwykonac szukanie frazy 'mnt' we wszystkich nazwach plikow? (napisz duza litera: T dla TAK i N dla NIE\e[0m"
 read odpfinddev
 
 if [ $odpfinddev == "T" ] ; then
 mkdir /home/$uzytkownik-$indeks/Nowy
 echo -e "\e[32mprzeczesuje wszystkie pliki...\e[0m"
-find / -type f -name "*dev*" > /home/$uzytkownik-$indeks/Nowy/wyniki
+find / -type f -name "*mnt*" > /home/$uzytkownik-$indeks/Nowy/wyniki
 else
-echo -e "wybrales \e[32mNIE\e[0m tworzyc pliku 'Nowy' i zapisania w nim wyszukiwania 'dev'"
+echo -e "wybrales \e[32mNIE\e[0m tworzyc pliku 'Nowy' i zapisania w nim wyszukiwania 'mnt'"
 fi
 echo "\n"
 
