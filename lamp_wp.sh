@@ -4,6 +4,8 @@
 
 sudo apt-get update && sudo apt-get upgrade -y
 
+sudo apt-get install expect -y
+
 echo "instalacja LAMP"
 
 echo "instalacja apache2"
@@ -12,17 +14,13 @@ sudo apt-get install apache2 -y
 echo "instalacja mariadb-server"
 sudo apt-get install mariadb-server -y
 
-#echo "konfiguracja mysql/mariadb"
-#sudo mysql_secure_installation
+echo "konfiguracja mysql/mariadb"
 
-#enter, n enter, y enter, y enter, y enter, y enter, 
-#printf '\nn\ny\ny\ny\ny\n'
 
-#printf "sudo mysql -u root -p\n"
-#printf "CREATE DATABASE wpdb;\n"
-#printf "GRANT ALL ON wpdb.* TO 'wpuser' IDENTIFIED BY 'wppasword';\n"
-#printf "FLUSH PRIVILEGES;\n"
-#printf "quit\n"
+
+
+
+
 
 echo "instalacja komponentów PHP"
 sudo apt-get install php libapache2-mod-php -y
