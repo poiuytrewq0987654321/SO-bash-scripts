@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# curl -O https://raw.githubusercontent.com/poiuytrewq0987654321/SO-bash-scripts/master/lamp_wp.sh
+
 sudo apt-get update && sudo apt-get upgrade -y
 
 echo "instalacja LAMP"
@@ -10,17 +12,17 @@ sudo apt-get install apache2 -y
 echo "instalacja mariadb-server"
 sudo apt-get install mariadb-server -y
 
-echo "konfiguracja mysql/mariadb"
-sudo mysql_secure_installation
+#echo "konfiguracja mysql/mariadb"
+#sudo mysql_secure_installation
 
 #enter, n enter, y enter, y enter, y enter, y enter, 
 #printf '\nn\ny\ny\ny\ny\n'
 
-printf "sudo mysql -u root -p\n"
-printf "CREATE DATABASE wpdb;\n"
-printf "GRANT ALL ON wpdb.* TO 'wpuser' IDENTIFIED BY 'wppasword';\n"
-printf "FLUSH PRIVILEGES;\n"
-printf "quit\n"
+#printf "sudo mysql -u root -p\n"
+#printf "CREATE DATABASE wpdb;\n"
+#printf "GRANT ALL ON wpdb.* TO 'wpuser' IDENTIFIED BY 'wppasword';\n"
+#printf "FLUSH PRIVILEGES;\n"
+#printf "quit\n"
 
 echo "instalacja komponentów PHP"
 sudo apt-get install php libapache2-mod-php -y
@@ -56,6 +58,7 @@ sudo sed -i "/^define( 'AUTH_SALT'/d" /var/www/wordpress/wp-config.php
 sudo sed -i "/^define( 'SECURE_AUTH_SALT'/d" /var/www/wordpress/wp-config.php
 sudo sed -i "/^define( 'LOGGED_IN_SALT'/d" /var/www/wordpress/wp-config.php
 sudo sed -i "/^define( 'NONCE_SALT'/d" /var/www/wordpress/wp-config.php
+sudo sed -i "/^define( 'LOGGED_IN_KEY'/d" /var/www/wordpress/wp-config.php
 
 wp_salts=$(curl -s https://api.wordpress.org/secret-key/1.1/salt/)
 echo $wp_salts >> /var/www/wordpress/wp-config.php
