@@ -17,11 +17,6 @@ sudo apt-get install mariadb-server -y
 echo "konfiguracja mysql/mariadb"
 
 
-
-
-
-
-
 echo "instalacja komponentów PHP"
 sudo apt-get install php libapache2-mod-php -y
 sudo apt-get install php-gd php-mysql -y
@@ -48,6 +43,7 @@ sudo sed -i 's/database_name_here/wpdb/' /var/www/wordpress/wp-config.php
 sudo sed -i 's/username_here/wpuser/' /var/www/wordpress/wp-config.php
 sudo sed -i 's/password_here/wppasword/' /var/www/wordpress/wp-config.php
 
+sudo sed -i "/^define( 'LOGGED_IN_KEY'/d" /var/www/wordpress/wp-config.php
 sudo sed -i "/^define( 'AUTH_KEY'/d" /var/www/wordpress/wp-config.php
 sudo sed -i "/^define( 'SECURE_AUTH_KEY'/d" /var/www/wordpress/wp-config.php
 sudo sed -i "/^define( 'LOGGED_AUTH_KEY'/d" /var/www/wordpress/wp-config.php
